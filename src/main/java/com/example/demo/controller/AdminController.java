@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AdminController {
     @GetMapping("/admin")
     public String adminP(){
-        return "Admin Controller";
+        return "Admin Contr123oller";
     }
+
+
+
 }
