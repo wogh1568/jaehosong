@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.CorpDao">	<!-- mapper 인터페이스가 위치하는 경로 -->
+    <select id="selectList" parameterType="com.example.demo.domain.params.CorpParams" resultType="com.example.demo.domain.Corp">	<!-- id: mapper 인터페이스에서 선언한 메서드 이름과 같아야 한다. resultType: VO 클래스가 위치하는 경로 -->
+        SELECT *
+        FROM pktest	<!-- SQL문 작성 -->
+    </select>
+
+
+    <insert id="insert" parameterType="com.example.demo.domain.Corp" useGeneratedKeys="true" keyProperty="corp_Idx" keyColumn="corp_idx">
+        /* MyBatisCorpDao.insert*/
+        INSERT INTO pktest(
+                         corp_name
+                        ,corp_number
+        )VALUES(
+                #{corp_Name}
+               , #{corp_Number}
+               )
+    </insert>
+
+
+    <update id="update" parameterType="com.example.demo.domain.Corp">
+        UPDATE  pktest
+        SET     corp_name	= #{corp_Name}
+                ,corp_number	= #{corp_Number}
+        WHERE	corp_idx	= #{corp_Idx}
+    </update>
+
+    <delete id="delete" parameterType="integer">
+        DELETE FROM pktest
+        WHERE   corp_idx=#{VALUE}
+
+    </delete>
+
+
+</mapper>
