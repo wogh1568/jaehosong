@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AdminController {
     @GetMapping("/admin")
     public String adminP(){
-        return "Admin Contr1231414oller";
+        return "Admin Contr12314114144oller";
     }
 
 
